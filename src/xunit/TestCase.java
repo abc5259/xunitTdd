@@ -9,17 +9,20 @@ public class TestCase {
         this.name = name;
     }
 
-    public void run() { //생성자로 설정한 메소드를 실행해주는 역할
+    public TestResult run() { //생성자로 설정한 메소드를 실행해주는 역할
+        TestResult result = new TestResult();
+        result.testStarted();
         setUp();
 
         try {
             Method method = getClass().getMethod(name);
             method.invoke(this);
         } catch (NoSuchMethodException | IllegalAccessException | InvocationTargetException e) {
-            throw new RuntimeException(e);
+            result.testFailed();
         }
 
         tearDown();
+        return result;
     }
 
     public void setUp() {
