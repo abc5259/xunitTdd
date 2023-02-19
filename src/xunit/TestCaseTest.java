@@ -5,10 +5,9 @@ public class TestCaseTest extends TestCase {
         super(name);
     }
 
-
     public void testTemplateMethod() {
         WasRun wasRun = new WasRun("testMethod"); // 생성자로 테스트할 메소드 지정
-        wasRun.run(); // 메소드 실행시 wasRun true로
-        Assert.assertEquals("setUp testMethod",wasRun.log);
+        wasRun.run();
+        Assert.assertEquals("setUp testMethod tearDown",wasRun.log);
     }
 }
