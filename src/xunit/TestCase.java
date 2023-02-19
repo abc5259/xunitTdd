@@ -9,8 +9,7 @@ public class TestCase {
         this.name = name;
     }
 
-    public TestResult run() { //생성자로 설정한 메소드를 실행해주는 역할
-        TestResult result = new TestResult();
+    public void run(TestResult result) { //생성자로 설정한 메소드를 실행해주는 역할
         result.testStarted();
         setUp();
 
@@ -22,7 +21,6 @@ public class TestCase {
         }
 
         tearDown();
-        return result;
     }
 
     public void setUp() {
